@@ -359,15 +359,15 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Movie Grid */
-        .movies-grid {
+        /* Content Grid */
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
-        .movie-card {
+        .content-card {
             background: rgba(34, 31, 31, 0.9);
             border-radius: 15px;
             overflow: hidden;
@@ -377,12 +377,12 @@
             cursor: pointer;
         }
 
-        .movie-card:hover {
+        .content-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-xl);
         }
 
-        .movie-card::before {
+        .content-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -395,28 +395,28 @@
             z-index: 1;
         }
 
-        .movie-card:hover::before {
+        .content-card:hover::before {
             opacity: 1;
         }
 
-        .movie-poster {
+        .content-poster {
             width: 100%;
             height: 400px;
             object-fit: cover;
             transition: var(--transition);
         }
 
-        .movie-card:hover .movie-poster {
+        .content-card:hover .content-poster {
             transform: scale(1.1);
         }
 
-        .movie-info {
+        .content-info {
             padding: 1.5rem;
             position: relative;
             z-index: 2;
         }
 
-        .movie-title {
+        .content-title {
             font-size: 1.3rem;
             font-weight: 600;
             color: var(--netflix-light);
@@ -424,7 +424,7 @@
             line-height: 1.3;
         }
 
-        .movie-meta {
+        .content-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -433,7 +433,7 @@
             font-size: 0.9rem;
         }
 
-        .movie-description {
+        .content-description {
             color: var(--netflix-gray);
             font-size: 0.9rem;
             line-height: 1.5;
@@ -444,7 +444,7 @@
             overflow: hidden;
         }
 
-        .movie-actions {
+        .content-actions {
             display: flex;
             gap: 0.5rem;
         }
@@ -495,6 +495,21 @@
         .btn-delete:hover {
             background: #e74c3c;
             transform: scale(1.1);
+        }
+
+        /* Series Badge */
+        .series-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            z-index: 3;
         }
 
         /* Pagination */
@@ -562,6 +577,12 @@
             gap: 0.5rem;
         }
 
+        .admin-toggles {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .admin-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -608,7 +629,7 @@
             font-weight: 500;
         }
 
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             background: rgba(34, 31, 31, 0.8);
             border: 2px solid rgba(86, 77, 77, 0.5);
@@ -618,7 +639,7 @@
             transition: var(--transition);
         }
 
-        .form-input:focus {
+        .form-input:focus, .form-select:focus {
             outline: none;
             border-color: var(--netflix-red);
             box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
@@ -658,7 +679,7 @@
             border-color: var(--netflix-red);
         }
 
-        .movie-form {
+        .content-form {
             background: rgba(20, 20, 20, 0.8);
             padding: 2rem;
             border-radius: 15px;
@@ -688,6 +709,71 @@
             outline: none;
             border-color: var(--netflix-red);
             box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+        }
+
+        /* Series Form */
+        .seasons-container {
+            background: rgba(34, 31, 31, 0.5);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .season-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(86, 77, 77, 0.3);
+        }
+
+        .season-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--netflix-red);
+        }
+
+        .episodes-container {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .episode-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 2fr auto;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .btn-add {
+            background: rgba(40, 167, 69, 0.8);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-add:hover {
+            background: #28a745;
+        }
+
+        .btn-remove {
+            background: rgba(231, 76, 60, 0.8);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 35px;
+            height: 35px;
+        }
+
+        .btn-remove:hover {
+            background: #e74c3c;
         }
 
         /* Collections Section */
@@ -893,6 +979,100 @@
             line-height: 1.6;
         }
 
+        /* Series Episode Selector */
+        .episode-selector {
+            padding: 1.5rem;
+            border-top: 1px solid rgba(86, 77, 77, 0.3);
+        }
+
+        .selector-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .selector-label {
+            font-weight: 600;
+            color: var(--netflix-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-play-episode {
+            background: var(--netflix-red);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-play-episode:hover {
+            background: #c8070f;
+            transform: translateY(-2px);
+        }
+
+        /* Connection Status */
+        .connection-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .connection-status.connected {
+            background: rgba(40, 167, 69, 0.9);
+            color: white;
+        }
+
+        .connection-status.disconnected {
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+        }
+
+        .connection-status.connecting {
+            background: rgba(255, 193, 7, 0.9);
+            color: var(--netflix-dark);
+        }
+
+        /* Toggle Buttons */
+        .toggle-button {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .toggle-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .toggle-button.active {
+            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+        }
+
+        .toggle-button.series {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        }
+
+        .toggle-button.series.active {
+            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -907,7 +1087,7 @@
                 font-size: 2rem;
             }
 
-            .movies-grid {
+            .content-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 1.5rem;
             }
@@ -926,8 +1106,22 @@
                 text-align: center;
             }
 
+            .admin-toggles {
+                justify-content: center;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
+            }
+
+            .episode-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .selector-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
 
             .pagination-container {
@@ -940,11 +1134,11 @@
                 font-size: 2rem;
             }
 
-            .movies-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
 
-            .movie-card {
+            .content-card {
                 margin: 0 1rem;
             }
 
@@ -1018,56 +1212,6 @@
         .netflix-red-text {
             color: var(--netflix-red);
         }
-
-        /* New Movie Toggle Button */
-        .new-movie-toggle {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow-md);
-        }
-
-        .new-movie-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .new-movie-toggle.active {
-            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
-        }
-
-        /* Firebase connection status */
-        .connection-status {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .connection-status.connected {
-            background: rgba(40, 167, 69, 0.9);
-            color: white;
-        }
-
-        .connection-status.disconnected {
-            background: rgba(220, 53, 69, 0.9);
-            color: white;
-        }
-
-        .connection-status.connecting {
-            background: rgba(255, 193, 7, 0.9);
-            color: var(--netflix-dark);
-        }
     </style>
 </head>
 <body>
@@ -1104,6 +1248,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="app.showSeries()">
+                            <i class="fas fa-tv"></i> Series
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onclick="app.showCollections()">
                             <i class="fas fa-layer-group"></i> Collections
                         </a>
@@ -1128,7 +1277,7 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-lg-8 hero-content">
                         <h1 class="hero-title">OussaStream</h1>
-                        <p class="hero-subtitle">Discover and stream the greatest movies of all time with our premium collection. Experience cinema like never before.</p>
+                        <p class="hero-subtitle">Discover and stream the greatest movies and series of all time with our premium collection. Experience cinema like never before.</p>
                         <button class="cta-button" onclick="app.showMovies()">
                             <i class="fas fa-play"></i> Start Watching
                         </button>
@@ -1137,16 +1286,17 @@
             </div>
         </section>
 
-        <!-- New Movies Section -->
-        <section class="section" id="newMoviesSection">
+        <!-- New Content Section -->
+        <section class="section" id="newContentSection">
             <div class="container">
-                <h2 class="section-title">New Movies</h2>
+                <h2 class="section-title">New Releases</h2>
                 <p class="text-center" style="color: var(--netflix-gray); margin-bottom: 3rem;">Recently added to our collection</p>
-                <div class="movies-grid" id="newMoviesGrid">
-                    <!-- New movies will be loaded here -->
+                <div class="content-grid" id="newContentGrid">
+                    <!-- New content will be loaded here -->
                 </div>
                 <div class="text-center">
-                    <button class="cta-button" onclick="app.showMovies()">View All Movies</button>
+                    <button class="cta-button" onclick="app.showMovies()" style="margin-right: 1rem;">View All Movies</button>
+                    <button class="cta-button" onclick="app.showSeries()">View All Series</button>
                 </div>
             </div>
         </section>
@@ -1156,33 +1306,33 @@
             <div class="container">
                 <h2 class="section-title">Browse Collections</h2>
                 <div class="collections-grid" id="collectionsGrid">
-                    <div class="collection-card" onclick="app.filterMovies('Drama')">
+                    <div class="collection-card" onclick="app.filterContent('Drama', 'movies')">
                         <div class="collection-icon">
                             <i class="fas fa-heart"></i>
                         </div>
                         <div class="collection-title">Drama</div>
-                        <div class="collection-count" id="dramaCount">0 movies</div>
+                        <div class="collection-count" id="dramaCount">0 movies & series</div>
                     </div>
-                    <div class="collection-card" onclick="app.filterMovies('Action')">
+                    <div class="collection-card" onclick="app.filterContent('Action', 'movies')">
                         <div class="collection-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <div class="collection-title">Action</div>
-                        <div class="collection-count" id="actionCount">0 movies</div>
+                        <div class="collection-count" id="actionCount">0 movies & series</div>
                     </div>
-                    <div class="collection-card" onclick="app.filterMovies('Comedy')">
+                    <div class="collection-card" onclick="app.filterContent('Comedy', 'movies')">
                         <div class="collection-icon">
                             <i class="fas fa-laugh"></i>
                         </div>
                         <div class="collection-title">Comedy</div>
-                        <div class="collection-count" id="comedyCount">0 movies</div>
+                        <div class="collection-count" id="comedyCount">0 movies & series</div>
                     </div>
-                    <div class="collection-card" onclick="app.filterMovies('Thriller')">
+                    <div class="collection-card" onclick="app.filterContent('Thriller', 'movies')">
                         <div class="collection-icon">
                             <i class="fas fa-mask"></i>
                         </div>
                         <div class="collection-title">Thriller</div>
-                        <div class="collection-count" id="thrillerCount">0 movies</div>
+                        <div class="collection-count" id="thrillerCount">0 movies & series</div>
                     </div>
                 </div>
             </div>
@@ -1200,9 +1350,9 @@
                 <div class="controls-container">
                     <div class="search-container">
                         <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search movies by title...">
+                        <input type="text" class="search-input" id="movieSearchInput" placeholder="Search movies by title...">
                     </div>
-                    <div class="filter-buttons">
+                    <div class="filter-buttons" id="movieFilters">
                         <button class="filter-btn active" onclick="app.filterMovies('all')">All</button>
                         <button class="filter-btn" onclick="app.filterMovies('Drama')">Drama</button>
                         <button class="filter-btn" onclick="app.filterMovies('Action')">Action</button>
@@ -1215,12 +1365,50 @@
                 </div>
 
                 <!-- Movies Grid -->
-                <div class="movies-grid" id="moviesGrid">
+                <div class="content-grid" id="moviesGrid">
                     <!-- Movies will be loaded here -->
                 </div>
 
                 <!-- Pagination -->
-                <div class="pagination-container" id="paginationContainer">
+                <div class="pagination-container" id="moviePaginationContainer">
+                    <!-- Pagination will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Series Page -->
+    <div id="seriesPage" class="hidden">
+        <div style="height: 100px;"></div>
+        <div class="container">
+            <div class="section">
+                <h2 class="section-title">All Series</h2>
+                
+                <!-- Search and Filter Controls -->
+                <div class="controls-container">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" id="seriesSearchInput" placeholder="Search series by title...">
+                    </div>
+                    <div class="filter-buttons" id="seriesFilters">
+                        <button class="filter-btn active" onclick="app.filterSeries('all')">All</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Drama')">Drama</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Action')">Action</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Comedy')">Comedy</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Thriller')">Thriller</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Horror')">Horror</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Sci-Fi')">Sci-Fi</button>
+                        <button class="filter-btn" onclick="app.filterSeries('Romance')">Romance</button>
+                    </div>
+                </div>
+
+                <!-- Series Grid -->
+                <div class="content-grid" id="seriesGrid">
+                    <!-- Series will be loaded here -->
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination-container" id="seriesPaginationContainer">
                     <!-- Pagination will be loaded here -->
                 </div>
             </div>
@@ -1255,9 +1443,12 @@
                             <i class="fas fa-crown"></i>
                             Admin Dashboard
                         </div>
-                        <div>
-                            <button class="new-movie-toggle" id="newMovieToggle" onclick="app.toggleNewMovieForm()">
+                        <div class="admin-toggles">
+                            <button class="toggle-button" id="newMovieToggle" onclick="app.toggleNewMovieForm()">
                                 <i class="fas fa-plus"></i> Add New Movie
+                            </button>
+                            <button class="toggle-button series" id="newSeriesToggle" onclick="app.toggleNewSeriesForm()">
+                                <i class="fas fa-plus"></i> Add New Series
                             </button>
                             <button class="btn-secondary" onclick="app.adminLogout()">Logout</button>
                         </div>
@@ -1270,18 +1461,22 @@
                             <div class="stat-label">Total Movies</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value" id="totalGenres">0</div>
-                            <div class="stat-label">Genres</div>
+                            <div class="stat-value" id="totalSeries">0</div>
+                            <div class="stat-label">Total Series</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-value" id="newestMovie">-</div>
-                            <div class="stat-label">Newest Movie</div>
+                            <div class="stat-value" id="totalSeasons">0</div>
+                            <div class="stat-label">Total Seasons</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalGenres">0</div>
+                            <div class="stat-label">Genres</div>
                         </div>
                     </div>
 
                     <!-- Movie Form -->
-                    <div class="movie-form hidden" id="movieForm">
-                        <h4 id="formTitle">Add New Movie</h4>
+                    <div class="content-form hidden" id="movieForm">
+                        <h4 id="movieFormTitle">Add New Movie</h4>
                         <form onsubmit="app.saveMovie(event)">
                             <div class="form-row">
                                 <div class="form-group">
@@ -1296,7 +1491,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">Genre *</label>
-                                    <select class="form-input" id="movieType" required>
+                                    <select class="form-select" id="movieType" required>
                                         <option value="">Select Genre</option>
                                         <option value="Action">Action</option>
                                         <option value="Comedy">Comedy</option>
@@ -1326,16 +1521,78 @@
                                 <button type="submit" class="btn-primary">
                                     <i class="fas fa-save"></i> Save Movie
                                 </button>
-                                <button type="button" class="btn-secondary" onclick="app.cancelEdit()">
+                                <button type="button" class="btn-secondary" onclick="app.cancelMovieEdit()">
                                     <i class="fas fa-times"></i> Cancel
                                 </button>
                             </div>
                         </form>
                     </div>
 
-                    <!-- Admin Movies List -->
-                    <div class="movies-grid" id="adminMoviesGrid">
-                        <!-- Admin movies will be loaded here -->
+                    <!-- Series Form -->
+                    <div class="content-form hidden" id="seriesForm">
+                        <h4 id="seriesFormTitle">Add New Series</h4>
+                        <form onsubmit="app.saveSeries(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Series Title *</label>
+                                    <input type="text" class="form-input" id="seriesTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Year *</label>
+                                    <input type="number" class="form-input" id="seriesYear" min="1900" max="2030" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Genre *</label>
+                                    <select class="form-select" id="seriesType" required>
+                                        <option value="">Select Genre</option>
+                                        <option value="Action">Action</option>
+                                        <option value="Comedy">Comedy</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Horror">Horror</option>
+                                        <option value="Romance">Romance</option>
+                                        <option value="Sci-Fi">Sci-Fi</option>
+                                        <option value="Thriller">Thriller</option>
+                                        <option value="Documentary">Documentary</option>
+                                        <option value="Animation">Animation</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Poster URL *</label>
+                                    <input type="url" class="form-input" id="seriesPoster" required placeholder="https://...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Description *</label>
+                                <textarea class="form-textarea" id="seriesDescription" required placeholder="Enter series description..."></textarea>
+                            </div>
+                            
+                            <!-- Seasons Container -->
+                            <div class="form-group">
+                                <label class="form-label">Seasons & Episodes</label>
+                                <div id="seasonsContainer">
+                                    <!-- Seasons will be dynamically added here -->
+                                </div>
+                                <button type="button" class="btn-add" onclick="app.addSeason()">
+                                    <i class="fas fa-plus"></i> Add Season
+                                </button>
+                            </div>
+
+                            <div style="display: flex; gap: 1rem;">
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-save"></i> Save Series
+                                </button>
+                                <button type="button" class="btn-secondary" onclick="app.cancelSeriesEdit()">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Admin Content List -->
+                    <div class="content-grid" id="adminContentGrid">
+                        <!-- Admin content will be loaded here -->
                     </div>
                 </div>
             </div>
@@ -1349,7 +1606,7 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="video-container">
-                <iframe id="moviePlayer" allowfullscreen></iframe>
+                <iframe id="contentPlayer" allowfullscreen></iframe>
             </div>
             <div class="modal-info">
                 <div class="modal-title" id="modalTitle"></div>
@@ -1358,6 +1615,28 @@
                     <span id="modalType"></span>
                 </div>
                 <div class="modal-description" id="modalDescription"></div>
+            </div>
+            <!-- Series Episode Selector -->
+            <div class="episode-selector hidden" id="episodeSelector">
+                <div class="selector-row">
+                    <div>
+                        <div class="selector-label">Season</div>
+                        <select class="form-select" id="seasonSelect" onchange="app.updateEpisodeOptions()">
+                            <option value="">Select Season</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="selector-label">Episode</div>
+                        <select class="form-select" id="episodeSelect">
+                            <option value="">Select Episode</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn-play-episode" onclick="app.playSelectedEpisode()">
+                            <i class="fas fa-play"></i> Play
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1368,33 +1647,31 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>About OussaStream</h4>
-                    <p>Your premium destination for the greatest movies of all time. We curate the finest collection of cinema from around the world.</p>
+                    <p>Your destination for the greatest movies and series of all time. We curate the finest collection of entertainment from around the world.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <p><a href="#" onclick="app.showHome()">Home</a></p>
                     <p><a href="#" onclick="app.showMovies()">Movies</a></p>
+                    <p><a href="#" onclick="app.showSeries()">Series</a></p>
                     <p><a href="#" onclick="app.showCollections()">Collections</a></p>
                 </div>
                 <div class="footer-section">
                     <h4>Support</h4>
                     <p><a href="#">Help Center</a></p>
-                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="https://www.instagram.com/aits.oussa/">Contact Us</a></p>
                     <p><a href="#">Terms of Service</a></p>
                 </div>
                 <div class="footer-section">
                     <h4>Connect</h4>
                     <p>Follow us on social media for the latest updates</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/aits.oussa/" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 OussaStream. All rights reserved. Made with <span style="color: var(--netflix-red);">❤</span> by OussaStream Team.</p>
+                <p>&copy; 2025 OussaStream. All rights reserved. Made with <span style="color: var(--netflix-red);">❤</span> by Oussama ait salem.</p>
             </div>
         </div>
     </footer>
@@ -1430,17 +1707,34 @@
 
         class OussaStreamApp {
             constructor() {
+                // Pagination settings
                 this.currentPage = 1;
                 this.moviesPerPage = 12;
-                this.currentFilter = 'all';
-                this.currentSearch = '';
+                this.seriesCurrentPage = 1;
+                this.seriesPerPage = 12;
+                
+                // Filter settings
+                this.currentMovieFilter = 'all';
+                this.currentSeriesFilter = 'all';
+                this.currentMovieSearch = '';
+                this.currentSeriesSearch = '';
+                
+                // Admin settings
                 this.isAdminLoggedIn = false;
-                this.movies = [];
                 this.editingMovieId = null;
-                this.currentMovie = null;
+                this.editingSeriesId = null;
+                
+                // Data
+                this.movies = [];
+                this.series = [];
+                
+                // UI state
                 this.currentView = 'home';
                 this.newMovieToggleActive = false;
+                this.newSeriesToggleActive = false;
+                this.currentContent = null;
                 this.firebaseConnected = false;
+                this.seasonCount = 0;
 
                 this.init();
             }
@@ -1471,7 +1765,7 @@
                         connectionStatus.className = 'connection-status connected';
                         connectionStatus.innerHTML = '<i class="fas fa-wifi"></i> Connected';
                         console.log('Connected to Firebase');
-                        this.loadMoviesFromFirebase();
+                        this.loadContentFromFirebase();
                     } else {
                         this.firebaseConnected = false;
                         connectionStatus.className = 'connection-status disconnected';
@@ -1490,18 +1784,36 @@
                         }));
                     } else {
                         this.movies = [];
-                        this.initializeSampleMovies();
+                    }
+                    this.updateUI();
+                });
+
+                // Listen for series changes in real-time
+                database.ref('series').on('value', (snapshot) => {
+                    const data = snapshot.val();
+                    if (data) {
+                        this.series = Object.keys(data).map(key => ({
+                            id: key,
+                            ...data[key]
+                        }));
+                    } else {
+                        this.series = [];
                     }
                     this.updateUI();
                 });
             }
 
-            loadMoviesFromFirebase() {
-                database.ref('movies').once('value', (snapshot) => {
-                    const data = snapshot.val();
-                    if (!data) {
-                        // Initialize with sample movies if database is empty
+            loadContentFromFirebase() {
+                // Check if we need to initialize sample data
+                Promise.all([
+                    database.ref('movies').once('value'),
+                    database.ref('series').once('value')
+                ]).then(([moviesSnapshot, seriesSnapshot]) => {
+                    if (!moviesSnapshot.val()) {
                         this.initializeSampleMovies();
+                    }
+                    if (!seriesSnapshot.val()) {
+                        this.initializeSampleSeries();
                     }
                 });
             }
@@ -1525,14 +1837,6 @@
                         videoUrl: "https://www.youtube.com/embed/sY1S34973zA"
                     },
                     {
-                        title: "Pulp Fiction",
-                        year: 1994,
-                        type: "Thriller",
-                        description: "The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.",
-                        poster: "https://images.unsplash.com/photo-1518621845511-d2e8aaf1b6ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                        videoUrl: "https://www.youtube.com/embed/s7EdQ4FqbhY"
-                    },
-                    {
                         title: "Inception",
                         year: 2010,
                         type: "Sci-Fi",
@@ -1547,21 +1851,62 @@
                         description: "A computer programmer discovers that reality as he knows it is a simulation and joins a rebellion to break free.",
                         poster: "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                         videoUrl: "https://www.youtube.com/embed/vKQi3bBA1y8"
-                    },
-                    {
-                        title: "Forrest Gump",
-                        year: 1994,
-                        type: "Comedy",
-                        description: "The story of a man with low IQ who accomplishes great things in life and is present during significant historic events.",
-                        poster: "https://images.unsplash.com/photo-1587731556938-38755b4803a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                        videoUrl: "https://www.youtube.com/embed/bLvqoHBptjg"
                     }
                 ];
 
-                // Add sample movies to Firebase
                 const moviesRef = database.ref('movies');
                 sampleMovies.forEach(movie => {
                     moviesRef.push(movie);
+                });
+            }
+
+            initializeSampleSeries() {
+                const sampleSeries = [
+                    {
+                        title: "Stranger Things",
+                        year: 2016,
+                        type: "Sci-Fi",
+                        description: "When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.",
+                        poster: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                        seasons: [
+                            {
+                                seasonNumber: 1,
+                                episodes: [
+                                    { episodeNumber: 1, title: "The Vanishing of Will Byers", videoUrl: "https://www.youtube.com/embed/b9EkMc79ZSU" },
+                                    { episodeNumber: 2, title: "The Weirdo on Maple Street", videoUrl: "https://www.youtube.com/embed/XWxyRG_tckY" },
+                                    { episodeNumber: 3, title: "Holly, Jolly", videoUrl: "https://www.youtube.com/embed/mnd7sFt5c3A" }
+                                ]
+                            },
+                            {
+                                seasonNumber: 2,
+                                episodes: [
+                                    { episodeNumber: 1, title: "MADMAX", videoUrl: "https://www.youtube.com/embed/9Egf5U8xLo8" },
+                                    { episodeNumber: 2, title: "Trick or Treat, Freak", videoUrl: "https://www.youtube.com/embed/CIGHCoVzqtk" }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        title: "Breaking Bad",
+                        year: 2008,
+                        type: "Drama",
+                        description: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine.",
+                        poster: "https://images.unsplash.com/photo-1611003229146-f2cd9ac5a8d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                        seasons: [
+                            {
+                                seasonNumber: 1,
+                                episodes: [
+                                    { episodeNumber: 1, title: "Pilot", videoUrl: "https://www.youtube.com/embed/HhesaQXLuRY" },
+                                    { episodeNumber: 2, title: "Cat's in the Bag...", videoUrl: "https://www.youtube.com/embed/ceXBHxSG9k4" }
+                                ]
+                            }
+                        ]
+                    }
+                ];
+
+                const seriesRef = database.ref('series');
+                sampleSeries.forEach(series => {
+                    seriesRef.push(series);
                 });
             }
 
@@ -1594,6 +1939,35 @@
                 }
             }
 
+            saveSeriestoFirebase(seriesData) {
+                if (!this.firebaseConnected) {
+                    alert('Not connected to Firebase. Please check your internet connection.');
+                    return;
+                }
+
+                if (this.editingSeriesId) {
+                    // Update existing series
+                    database.ref('series/' + this.editingSeriesId).update(seriesData)
+                        .then(() => {
+                            console.log('Series updated successfully');
+                        })
+                        .catch((error) => {
+                            console.error('Error updating series:', error);
+                            alert('Error updating series: ' + error.message);
+                        });
+                } else {
+                    // Add new series
+                    database.ref('series').push(seriesData)
+                        .then(() => {
+                            console.log('Series added successfully');
+                        })
+                        .catch((error) => {
+                            console.error('Error adding series:', error);
+                            alert('Error adding series: ' + error.message);
+                        });
+                }
+            }
+
             deleteMovieFromFirebase(movieId) {
                 if (!this.firebaseConnected) {
                     alert('Not connected to Firebase. Please check your internet connection.');
@@ -1612,21 +1986,48 @@
                 }
             }
 
+            deleteSeriesFromFirebase(seriesId) {
+                if (!this.firebaseConnected) {
+                    alert('Not connected to Firebase. Please check your internet connection.');
+                    return;
+                }
+
+                if (confirm('Are you sure you want to delete this series? This action cannot be undone.')) {
+                    database.ref('series/' + seriesId).remove()
+                        .then(() => {
+                            console.log('Series deleted successfully');
+                        })
+                        .catch((error) => {
+                            console.error('Error deleting series:', error);
+                            alert('Error deleting series: ' + error.message);
+                        });
+                }
+            }
+
             updateUI() {
-                this.renderMovies();
-                this.renderAdminMovies();
+                this.renderContent();
                 this.updateCollectionCounts();
                 this.updateAdminStats();
             }
 
             bindEvents() {
-                // Search input
-                const searchInput = document.getElementById('searchInput');
-                if (searchInput) {
-                    searchInput.addEventListener('input', (e) => {
-                        this.currentSearch = e.target.value.toLowerCase();
+                // Movie search input
+                const movieSearchInput = document.getElementById('movieSearchInput');
+                if (movieSearchInput) {
+                    movieSearchInput.addEventListener('input', (e) => {
+                        this.currentMovieSearch = e.target.value.toLowerCase();
                         this.currentPage = 1;
                         this.renderMovies();
+                    });
+                }
+
+                // Series search input
+                const seriesSearchInput = document.getElementById('seriesSearchInput');
+                if (seriesSearchInput) {
+                    seriesSearchInput.addEventListener('input', (e) => {
+                        this.currentSeriesSearch = e.target.value.toLowerCase();
+                        this.seriesCurrentPage = 1;
+                        this.renderSeries();
                     });
                 }
 
@@ -1671,7 +2072,7 @@
                     });
                 }, observerOptions);
 
-                document.querySelectorAll('.movie-card, .collection-card').forEach(el => {
+                document.querySelectorAll('.content-card, .collection-card').forEach(el => {
                     observer.observe(el);
                 });
             }
@@ -1688,8 +2089,9 @@
                 this.currentView = 'home';
                 document.getElementById('mainContent').classList.remove('hidden');
                 document.getElementById('moviesPage').classList.add('hidden');
+                document.getElementById('seriesPage').classList.add('hidden');
                 document.getElementById('adminSection').classList.add('hidden');
-                this.renderNewMovies();
+                this.renderNewContent();
                 this.updateCollectionCounts();
             }
 
@@ -1697,8 +2099,18 @@
                 this.currentView = 'movies';
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('moviesPage').classList.remove('hidden');
+                document.getElementById('seriesPage').classList.add('hidden');
                 document.getElementById('adminSection').classList.add('hidden');
                 this.renderMovies();
+            }
+
+            showSeries() {
+                this.currentView = 'series';
+                document.getElementById('mainContent').classList.add('hidden');
+                document.getElementById('moviesPage').classList.add('hidden');
+                document.getElementById('seriesPage').classList.remove('hidden');
+                document.getElementById('adminSection').classList.add('hidden');
+                this.renderSeries();
             }
 
             showCollections() {
@@ -1710,6 +2122,7 @@
                 this.currentView = 'admin';
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('moviesPage').classList.add('hidden');
+                document.getElementById('seriesPage').classList.add('hidden');
                 document.getElementById('adminSection').classList.remove('hidden');
                 
                 if (this.isAdminLoggedIn) {
@@ -1727,7 +2140,7 @@
             showAdminPanel() {
                 document.getElementById('adminLogin').classList.add('hidden');
                 document.getElementById('adminPanel').classList.remove('hidden');
-                this.renderAdminMovies();
+                this.renderAdminContent();
                 this.updateAdminStats();
             }
 
@@ -1751,16 +2164,22 @@
                 this.showAdminLogin();
             }
 
+            // Movie Form Methods
             toggleNewMovieForm() {
                 const form = document.getElementById('movieForm');
                 const toggle = document.getElementById('newMovieToggle');
+                
+                // Hide series form if open
+                if (this.newSeriesToggleActive) {
+                    this.toggleNewSeriesForm();
+                }
                 
                 if (this.newMovieToggleActive) {
                     form.classList.add('hidden');
                     toggle.innerHTML = '<i class="fas fa-plus"></i> Add New Movie';
                     toggle.classList.remove('active');
                     this.newMovieToggleActive = false;
-                    this.cancelEdit();
+                    this.cancelMovieEdit();
                 } else {
                     form.classList.remove('hidden');
                     toggle.innerHTML = '<i class="fas fa-minus"></i> Cancel';
@@ -1789,7 +2208,7 @@
                 };
 
                 this.saveMovieToFirebase(movieData);
-                this.resetForm();
+                this.resetMovieForm();
                 this.toggleNewMovieForm();
             }
 
@@ -1803,7 +2222,7 @@
                     document.getElementById('moviePoster').value = movie.poster;
                     document.getElementById('movieLink').value = movie.videoUrl;
                     document.getElementById('movieDescription').value = movie.description;
-                    document.getElementById('formTitle').textContent = 'Edit Movie';
+                    document.getElementById('movieFormTitle').textContent = 'Edit Movie';
                     
                     if (!this.newMovieToggleActive) {
                         this.toggleNewMovieForm();
@@ -1815,13 +2234,13 @@
                 this.deleteMovieFromFirebase(id);
             }
 
-            cancelEdit() {
+            cancelMovieEdit() {
                 this.editingMovieId = null;
-                this.resetForm();
-                document.getElementById('formTitle').textContent = 'Add New Movie';
+                this.resetMovieForm();
+                document.getElementById('movieFormTitle').textContent = 'Add New Movie';
             }
 
-            resetForm() {
+            resetMovieForm() {
                 document.getElementById('movieTitle').value = '';
                 document.getElementById('movieYear').value = '';
                 document.getElementById('movieType').value = '';
@@ -1830,20 +2249,261 @@
                 document.getElementById('movieDescription').value = '';
             }
 
+            // Series Form Methods
+            toggleNewSeriesForm() {
+                const form = document.getElementById('seriesForm');
+                const toggle = document.getElementById('newSeriesToggle');
+                
+                // Hide movie form if open
+                if (this.newMovieToggleActive) {
+                    this.toggleNewMovieForm();
+                }
+                
+                if (this.newSeriesToggleActive) {
+                    form.classList.add('hidden');
+                    toggle.innerHTML = '<i class="fas fa-plus"></i> Add New Series';
+                    toggle.classList.remove('active');
+                    this.newSeriesToggleActive = false;
+                    this.cancelSeriesEdit();
+                } else {
+                    form.classList.remove('hidden');
+                    toggle.innerHTML = '<i class="fas fa-minus"></i> Cancel';
+                    toggle.classList.add('active');
+                    this.newSeriesToggleActive = true;
+                    this.addSeason(); // Add initial season
+                }
+            }
+
+            addSeason() {
+                this.seasonCount++;
+                const container = document.getElementById('seasonsContainer');
+                
+                const seasonDiv = document.createElement('div');
+                seasonDiv.className = 'seasons-container';
+                seasonDiv.setAttribute('data-season', this.seasonCount);
+                
+                seasonDiv.innerHTML = `
+                    <div class="season-header">
+                        <div class="season-title">Season ${this.seasonCount}</div>
+                        <button type="button" class="btn-remove" onclick="app.removeSeason(${this.seasonCount})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="episodes-container" id="episodes-${this.seasonCount}">
+                        <div class="episode-row">
+                            <div class="form-group">
+                                <label class="form-label">Episode 1</label>
+                                <input type="text" class="form-input" placeholder="Episode title" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Video URL</label>
+                                <input type="url" class="form-input" placeholder="https://..." required>
+                            </div>
+                            <div></div>
+                            <button type="button" class="btn-add" onclick="app.addEpisode(${this.seasonCount})">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(seasonDiv);
+            }
+
+            removeSeason(seasonNumber) {
+                const seasonDiv = document.querySelector(`[data-season="${seasonNumber}"]`);
+                if (seasonDiv) {
+                    seasonDiv.remove();
+                }
+            }
+
+            addEpisode(seasonNumber) {
+                const container = document.getElementById(`episodes-${seasonNumber}`);
+                const episodeCount = container.children.length + 1;
+                
+                const episodeDiv = document.createElement('div');
+                episodeDiv.className = 'episode-row';
+                
+                episodeDiv.innerHTML = `
+                    <div class="form-group">
+                        <label class="form-label">Episode ${episodeCount}</label>
+                        <input type="text" class="form-input" placeholder="Episode title" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Video URL</label>
+                        <input type="url" class="form-input" placeholder="https://..." required>
+                    </div>
+                    <div></div>
+                    <button type="button" class="btn-remove" onclick="this.parentElement.remove()">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                
+                container.appendChild(episodeDiv);
+            }
+
+            saveSeries(event) {
+                event.preventDefault();
+                
+                const title = document.getElementById('seriesTitle').value;
+                const year = parseInt(document.getElementById('seriesYear').value);
+                const type = document.getElementById('seriesType').value;
+                const poster = document.getElementById('seriesPoster').value;
+                const description = document.getElementById('seriesDescription').value;
+
+                // Collect seasons and episodes data
+                const seasons = [];
+                const seasonContainers = document.querySelectorAll('.seasons-container');
+                
+                seasonContainers.forEach((seasonDiv, seasonIndex) => {
+                    const episodeRows = seasonDiv.querySelectorAll('.episode-row');
+                    const episodes = [];
+                    
+                    episodeRows.forEach((episodeRow, episodeIndex) => {
+                        const inputs = episodeRow.querySelectorAll('.form-input');
+                        if (inputs.length >= 2 && inputs[0].value.trim() && inputs[1].value.trim()) {
+                            episodes.push({
+                                episodeNumber: episodeIndex + 1,
+                                title: inputs[0].value.trim(),
+                                videoUrl: inputs[1].value.trim()
+                            });
+                        }
+                    });
+                    
+                    if (episodes.length > 0) {
+                        seasons.push({
+                            seasonNumber: seasonIndex + 1,
+                            episodes: episodes
+                        });
+                    }
+                });
+
+                if (seasons.length === 0) {
+                    alert('Please add at least one season with episodes.');
+                    return;
+                }
+
+                const seriesData = {
+                    title,
+                    year,
+                    type,
+                    poster,
+                    description,
+                    seasons
+                };
+
+                this.saveSeriestoFirebase(seriesData);
+                this.resetSeriesForm();
+                this.toggleNewSeriesForm();
+            }
+
+            editSeries(id) {
+                const series = this.series.find(s => s.id === id);
+                if (series) {
+                    this.editingSeriesId = id;
+                    document.getElementById('seriesTitle').value = series.title;
+                    document.getElementById('seriesYear').value = series.year;
+                    document.getElementById('seriesType').value = series.type;
+                    document.getElementById('seriesPoster').value = series.poster;
+                    document.getElementById('seriesDescription').value = series.description;
+                    document.getElementById('seriesFormTitle').textContent = 'Edit Series';
+                    
+                    // Clear existing seasons
+                    document.getElementById('seasonsContainer').innerHTML = '';
+                    this.seasonCount = 0;
+                    
+                    // Add seasons from existing data
+                    if (series.seasons) {
+                        series.seasons.forEach((season, seasonIndex) => {
+                            this.addSeason();
+                            const episodesContainer = document.getElementById(`episodes-${this.seasonCount}`);
+                            episodesContainer.innerHTML = '';
+                            
+                            season.episodes.forEach((episode, episodeIndex) => {
+                                const episodeDiv = document.createElement('div');
+                                episodeDiv.className = 'episode-row';
+                                
+                                episodeDiv.innerHTML = `
+                                    <div class="form-group">
+                                        <label class="form-label">Episode ${episodeIndex + 1}</label>
+                                        <input type="text" class="form-input" placeholder="Episode title" value="${episode.title}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Video URL</label>
+                                        <input type="url" class="form-input" placeholder="https://..." value="${episode.videoUrl}" required>
+                                    </div>
+                                    <div></div>
+                                    ${episodeIndex === 0 ? 
+                                        `<button type="button" class="btn-add" onclick="app.addEpisode(${this.seasonCount})"><i class="fas fa-plus"></i></button>` :
+                                        `<button type="button" class="btn-remove" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i></button>`
+                                    }
+                                `;
+                                
+                                episodesContainer.appendChild(episodeDiv);
+                            });
+                        });
+                    }
+                    
+                    if (!this.newSeriesToggleActive) {
+                        this.toggleNewSeriesForm();
+                    }
+                }
+            }
+
+            deleteSeries(id) {
+                this.deleteSeriesFromFirebase(id);
+            }
+
+            cancelSeriesEdit() {
+                this.editingSeriesId = null;
+                this.resetSeriesForm();
+                document.getElementById('seriesFormTitle').textContent = 'Add New Series';
+            }
+
+            resetSeriesForm() {
+                document.getElementById('seriesTitle').value = '';
+                document.getElementById('seriesYear').value = '';
+                document.getElementById('seriesType').value = '';
+                document.getElementById('seriesPoster').value = '';
+                document.getElementById('seriesDescription').value = '';
+                document.getElementById('seasonsContainer').innerHTML = '';
+                this.seasonCount = 0;
+            }
+
+            // Filter Methods
             filterMovies(filter) {
-                this.currentFilter = filter;
+                this.currentMovieFilter = filter;
                 this.currentPage = 1;
                 
                 // Update active filter button
-                document.querySelectorAll('.filter-btn').forEach(btn => {
+                document.querySelectorAll('#movieFilters .filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 event.target.classList.add('active');
                 
-                if (this.currentView === 'home') {
+                this.renderMovies();
+            }
+
+            filterSeries(filter) {
+                this.currentSeriesFilter = filter;
+                this.seriesCurrentPage = 1;
+                
+                // Update active filter button
+                document.querySelectorAll('#seriesFilters .filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                event.target.classList.add('active');
+                
+                this.renderSeries();
+            }
+
+            filterContent(filter, type) {
+                if (type === 'movies') {
+                    this.currentMovieFilter = filter;
                     this.showMovies();
                 } else {
-                    this.renderMovies();
+                    this.currentSeriesFilter = filter;
+                    this.showSeries();
                 }
             }
 
@@ -1851,27 +2511,60 @@
                 let filtered = this.movies;
 
                 // Apply search filter
-                if (this.currentSearch) {
+                if (this.currentMovieSearch) {
                     filtered = filtered.filter(movie =>
-                        movie.title.toLowerCase().includes(this.currentSearch)
+                        movie.title.toLowerCase().includes(this.currentMovieSearch)
                     );
                 }
 
                 // Apply type filter
-                if (this.currentFilter !== 'all') {
-                    filtered = filtered.filter(movie => movie.type === this.currentFilter);
+                if (this.currentMovieFilter !== 'all') {
+                    filtered = filtered.filter(movie => movie.type === this.currentMovieFilter);
                 }
 
                 return filtered;
             }
 
-            renderNewMovies() {
-                const container = document.getElementById('newMoviesGrid');
+            getFilteredSeries() {
+                let filtered = this.series;
+
+                // Apply search filter
+                if (this.currentSeriesSearch) {
+                    filtered = filtered.filter(series =>
+                        series.title.toLowerCase().includes(this.currentSeriesSearch)
+                    );
+                }
+
+                // Apply type filter
+                if (this.currentSeriesFilter !== 'all') {
+                    filtered = filtered.filter(series => series.type === this.currentSeriesFilter);
+                }
+
+                return filtered;
+            }
+
+            // Render Methods
+            renderNewContent() {
+                const container = document.getElementById('newContentGrid');
                 const newMovies = this.movies
+                    .sort((a, b) => b.year - a.year)
+                    .slice(0, 3);
+                const newSeries = this.series
+                    .sort((a, b) => b.year - a.year)
+                    .slice(0, 3);
+                
+                const newContent = [...newMovies, ...newSeries]
                     .sort((a, b) => b.year - a.year)
                     .slice(0, 6);
 
-                container.innerHTML = newMovies.map(movie => this.createMovieCard(movie, false)).join('');
+                container.innerHTML = newContent.map(content => this.createContentCard(content, false)).join('');
+            }
+
+            renderContent() {
+                this.renderMovies();
+                this.renderSeries();
+                this.renderAdminContent();
+                this.renderNewContent();
             }
 
             renderMovies() {
@@ -1884,41 +2577,68 @@
                 const paginatedMovies = filtered.slice(startIndex, endIndex);
 
                 container.innerHTML = paginatedMovies.map(movie => 
-                    this.createMovieCard(movie, this.isAdminLoggedIn)
+                    this.createContentCard(movie, this.isAdminLoggedIn)
                 ).join('');
 
-                this.renderPagination(filtered.length);
+                this.renderMoviePagination(filtered.length);
             }
 
-            renderAdminMovies() {
+            renderSeries() {
+                const container = document.getElementById('seriesGrid');
+                const filtered = this.getFilteredSeries();
+                
+                // Pagination
+                const startIndex = (this.seriesCurrentPage - 1) * this.seriesPerPage;
+                const endIndex = startIndex + this.seriesPerPage;
+                const paginatedSeries = filtered.slice(startIndex, endIndex);
+
+                container.innerHTML = paginatedSeries.map(series => 
+                    this.createContentCard(series, this.isAdminLoggedIn)
+                ).join('');
+
+                this.renderSeriesPagination(filtered.length);
+            }
+
+            renderAdminContent() {
                 if (!this.isAdminLoggedIn) return;
                 
-                const container = document.getElementById('adminMoviesGrid');
-                container.innerHTML = this.movies.map(movie => 
-                    this.createMovieCard(movie, true)
+                const container = document.getElementById('adminContentGrid');
+                const allContent = [
+                    ...this.movies.map(m => ({ ...m, contentType: 'movie' })),
+                    ...this.series.map(s => ({ ...s, contentType: 'series' }))
+                ];
+                
+                container.innerHTML = allContent.map(content => 
+                    this.createContentCard(content, true)
                 ).join('');
             }
 
-            createMovieCard(movie, showAdminControls) {
+            createContentCard(content, showAdminControls) {
+                const isSeries = content.seasons || content.contentType === 'series';
+                const watchFunction = isSeries ? `app.watchSeries('${content.id}')` : `app.watchMovie('${content.id}')`;
+                const editFunction = isSeries ? `app.editSeries('${content.id}')` : `app.editMovie('${content.id}')`;
+                const deleteFunction = isSeries ? `app.deleteSeries('${content.id}')` : `app.deleteMovie('${content.id}')`;
+                
                 return `
-                    <div class="movie-card animate-scale-in">
-                        <img src="${movie.poster}" alt="${movie.title}" class="movie-poster" loading="lazy">
-                        <div class="movie-info">
-                            <div class="movie-title">${movie.title}</div>
-                            <div class="movie-meta">
-                                <span>${movie.year}</span>
-                                <span>${movie.type}</span>
+                    <div class="content-card animate-scale-in">
+                        ${isSeries ? '<div class="series-badge">Series</div>' : ''}
+                        <img src="${content.poster}" alt="${content.title}" class="content-poster" loading="lazy">
+                        <div class="content-info">
+                            <div class="content-title">${content.title}</div>
+                            <div class="content-meta">
+                                <span>${content.year}</span>
+                                <span>${content.type}</span>
                             </div>
-                            <div class="movie-description">${movie.description}</div>
-                            <div class="movie-actions">
-                                <button class="btn-watch" onclick="app.watchMovie('${movie.id}')">
+                            <div class="content-description">${content.description}</div>
+                            <div class="content-actions">
+                                <button class="btn-watch" onclick="${watchFunction}">
                                     <i class="fas fa-play"></i> Watch
                                 </button>
                                 ${showAdminControls ? `
-                                    <button class="btn-edit" onclick="app.editMovie('${movie.id}')" title="Edit">
+                                    <button class="btn-edit" onclick="${editFunction}" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn-delete" onclick="app.deleteMovie('${movie.id}')" title="Delete">
+                                    <button class="btn-delete" onclick="${deleteFunction}" title="Delete">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 ` : ''}
@@ -1928,8 +2648,8 @@
                 `;
             }
 
-            renderPagination(totalMovies) {
-                const container = document.getElementById('paginationContainer');
+            renderMoviePagination(totalMovies) {
+                const container = document.getElementById('moviePaginationContainer');
                 const totalPages = Math.ceil(totalMovies / this.moviesPerPage);
 
                 if (totalPages <= 1) {
@@ -1939,7 +2659,7 @@
 
                 let paginationHTML = `
                     <button class="pagination-btn" ${this.currentPage === 1 ? 'disabled' : ''} 
-                            onclick="app.goToPage(${this.currentPage - 1})">
+                            onclick="app.goToMoviePage(${this.currentPage - 1})">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                 `;
@@ -1949,7 +2669,7 @@
                     if (i === 1 || i === totalPages || (i >= this.currentPage - 2 && i <= this.currentPage + 2)) {
                         paginationHTML += `
                             <button class="pagination-btn ${i === this.currentPage ? 'active' : ''}" 
-                                    onclick="app.goToPage(${i})">
+                                    onclick="app.goToMoviePage(${i})">
                                 ${i}
                             </button>
                         `;
@@ -1960,7 +2680,7 @@
 
                 paginationHTML += `
                     <button class="pagination-btn" ${this.currentPage === totalPages ? 'disabled' : ''} 
-                            onclick="app.goToPage(${this.currentPage + 1})">
+                            onclick="app.goToMoviePage(${this.currentPage + 1})">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 `;
@@ -1968,57 +2688,196 @@
                 container.innerHTML = paginationHTML;
             }
 
-            goToPage(page) {
+            renderSeriesPagination(totalSeries) {
+                const container = document.getElementById('seriesPaginationContainer');
+                const totalPages = Math.ceil(totalSeries / this.seriesPerPage);
+
+                if (totalPages <= 1) {
+                    container.innerHTML = '';
+                    return;
+                }
+
+                let paginationHTML = `
+                    <button class="pagination-btn" ${this.seriesCurrentPage === 1 ? 'disabled' : ''} 
+                            onclick="app.goToSeriesPage(${this.seriesCurrentPage - 1})">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                `;
+
+                // Show page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === 1 || i === totalPages || (i >= this.seriesCurrentPage - 2 && i <= this.seriesCurrentPage + 2)) {
+                        paginationHTML += `
+                            <button class="pagination-btn ${i === this.seriesCurrentPage ? 'active' : ''}" 
+                                    onclick="app.goToSeriesPage(${i})">
+                                ${i}
+                            </button>
+                        `;
+                    } else if (i === this.seriesCurrentPage - 3 || i === this.seriesCurrentPage + 3) {
+                        paginationHTML += '<span class="pagination-btn" style="border: none; cursor: default;">...</span>';
+                    }
+                }
+
+                paginationHTML += `
+                    <button class="pagination-btn" ${this.seriesCurrentPage === totalPages ? 'disabled' : ''} 
+                            onclick="app.goToSeriesPage(${this.seriesCurrentPage + 1})">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+
+                container.innerHTML = paginationHTML;
+            }
+
+            goToMoviePage(page) {
                 this.currentPage = page;
                 this.renderMovies();
                 window.scrollTo(0, 0);
             }
 
+            goToSeriesPage(page) {
+                this.seriesCurrentPage = page;
+                this.renderSeries();
+                window.scrollTo(0, 0);
+            }
+
             updateCollectionCounts() {
-                const counts = {
+                const movieCounts = {
                     drama: this.movies.filter(m => m.type === 'Drama').length,
                     action: this.movies.filter(m => m.type === 'Action').length,
                     comedy: this.movies.filter(m => m.type === 'Comedy').length,
                     thriller: this.movies.filter(m => m.type === 'Thriller').length
                 };
 
-                document.getElementById('dramaCount').textContent = `${counts.drama} movies`;
-                document.getElementById('actionCount').textContent = `${counts.action} movies`;
-                document.getElementById('comedyCount').textContent = `${counts.comedy} movies`;
-                document.getElementById('thrillerCount').textContent = `${counts.thriller} movies`;
+                const seriesCounts = {
+                    drama: this.series.filter(s => s.type === 'Drama').length,
+                    action: this.series.filter(s => s.type === 'Action').length,
+                    comedy: this.series.filter(s => s.type === 'Comedy').length,
+                    thriller: this.series.filter(s => s.type === 'Thriller').length
+                };
+
+                const totalCounts = {
+                    drama: movieCounts.drama + seriesCounts.drama,
+                    action: movieCounts.action + seriesCounts.action,
+                    comedy: movieCounts.comedy + seriesCounts.comedy,
+                    thriller: movieCounts.thriller + seriesCounts.thriller
+                };
+
+                document.getElementById('dramaCount').textContent = `${totalCounts.drama} movies & series`;
+                document.getElementById('actionCount').textContent = `${totalCounts.action} movies & series`;
+                document.getElementById('comedyCount').textContent = `${totalCounts.comedy} movies & series`;
+                document.getElementById('thrillerCount').textContent = `${totalCounts.thriller} movies & series`;
             }
 
             updateAdminStats() {
                 if (!this.isAdminLoggedIn) return;
 
-                const genres = [...new Set(this.movies.map(m => m.type))].length;
-                const newest = this.movies.length > 0 ? 
-                    this.movies.sort((a, b) => b.year - a.year)[0].title : '-';
+                const totalSeasons = this.series.reduce((sum, series) => {
+                    return sum + (series.seasons ? series.seasons.length : 0);
+                }, 0);
+
+                const allGenres = new Set([
+                    ...this.movies.map(m => m.type),
+                    ...this.series.map(s => s.type)
+                ]);
 
                 document.getElementById('totalMovies').textContent = this.movies.length;
-                document.getElementById('totalGenres').textContent = genres;
-                document.getElementById('newestMovie').textContent = newest;
+                document.getElementById('totalSeries').textContent = this.series.length;
+                document.getElementById('totalSeasons').textContent = totalSeasons;
+                document.getElementById('totalGenres').textContent = allGenres.size;
             }
 
+            // Watch Content Methods
             watchMovie(id) {
                 const movie = this.movies.find(m => m.id === id);
                 if (movie) {
-                    this.currentMovie = movie;
-                    document.getElementById('moviePlayer').src = movie.videoUrl;
+                    this.currentContent = movie;
+                    document.getElementById('contentPlayer').src = movie.videoUrl;
                     document.getElementById('modalTitle').textContent = movie.title;
                     document.getElementById('modalYear').textContent = movie.year;
                     document.getElementById('modalType').textContent = movie.type;
                     document.getElementById('modalDescription').textContent = movie.description;
+                    document.getElementById('episodeSelector').classList.add('hidden');
                     document.getElementById('videoModal').classList.add('show');
                     document.body.style.overflow = 'hidden';
                 }
             }
 
+            watchSeries(id) {
+                const series = this.series.find(s => s.id === id);
+                if (series) {
+                    this.currentContent = series;
+                    document.getElementById('contentPlayer').src = '';
+                    document.getElementById('modalTitle').textContent = series.title;
+                    document.getElementById('modalYear').textContent = series.year;
+                    document.getElementById('modalType').textContent = series.type;
+                    document.getElementById('modalDescription').textContent = series.description;
+                    
+                    // Setup season selector - FIXED: Using correct ID
+                    const seasonSelector = document.getElementById('seasonSelect');
+                    seasonSelector.innerHTML = '<option value="">Select Season</option>';
+                    
+                    if (series.seasons) {
+                        series.seasons.forEach(season => {
+                            const option = document.createElement('option');
+                            option.value = season.seasonNumber;
+                            option.textContent = `Season ${season.seasonNumber}`;
+                            seasonSelector.appendChild(option);
+                        });
+                    }
+                    
+                    document.getElementById('episodeSelector').classList.remove('hidden');
+                    document.getElementById('videoModal').classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            updateEpisodeOptions() {
+                // FIXED: Using correct IDs
+                const seasonNumber = parseInt(document.getElementById('seasonSelect').value);
+                const episodeSelector = document.getElementById('episodeSelect');
+                
+                episodeSelector.innerHTML = '<option value="">Select Episode</option>';
+                
+                if (this.currentContent && this.currentContent.seasons && seasonNumber) {
+                    const season = this.currentContent.seasons.find(s => s.seasonNumber === seasonNumber);
+                    if (season && season.episodes) {
+                        season.episodes.forEach(episode => {
+                            const option = document.createElement('option');
+                            option.value = episode.episodeNumber;
+                            option.textContent = `Episode ${episode.episodeNumber}: ${episode.title}`;
+                            option.dataset.videoUrl = episode.videoUrl;
+                            episodeSelector.appendChild(option);
+                        });
+                    }
+                }
+            }
+
+            playSelectedEpisode() {
+                // FIXED: Using correct IDs
+                const seasonNumber = parseInt(document.getElementById('seasonSelect').value);
+                const episodeNumber = parseInt(document.getElementById('episodeSelect').value);
+                
+                if (!seasonNumber || !episodeNumber) {
+                    alert('Please select both season and episode.');
+                    return;
+                }
+                
+                if (this.currentContent && this.currentContent.seasons) {
+                    const season = this.currentContent.seasons.find(s => s.seasonNumber === seasonNumber);
+                    if (season && season.episodes) {
+                        const episode = season.episodes.find(e => e.episodeNumber === episodeNumber);
+                        if (episode) {
+                            document.getElementById('contentPlayer').src = episode.videoUrl;
+                        }
+                    }
+                }
+            }
+
             closeVideoModal() {
                 document.getElementById('videoModal').classList.remove('show');
-                document.getElementById('moviePlayer').src = '';
+                document.getElementById('contentPlayer').src = '';
                 document.body.style.overflow = '';
-                this.currentMovie = null;
+                this.currentContent = null;
             }
         }
 
