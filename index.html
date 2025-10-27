@@ -1215,18 +1215,15 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
         <div class="loading-text">Loading OussaStream...</div>
     </div>
-
-    <!-- Connection Status -->
+    
     <div class="connection-status connecting" id="connectionStatus">
         <i class="fas fa-wifi"></i> Connecting to Firebase...
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg netflix-navbar fixed-top" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="#" onclick="app.showHome()">
@@ -1269,9 +1266,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div id="mainContent">
-        <!-- Hero Section -->
         <section class="hero-section" id="heroSection">
             <div class="container">
                 <div class="row justify-content-center text-center">
@@ -1286,14 +1281,12 @@
             </div>
         </section>
 
-        <!-- New Content Section -->
         <section class="section" id="newContentSection">
             <div class="container">
                 <h2 class="section-title">New Releases</h2>
                 <p class="text-center" style="color: var(--netflix-gray); margin-bottom: 3rem;">Recently added to our collection</p>
                 <div class="content-grid" id="newContentGrid">
-                    <!-- New content will be loaded here -->
-                </div>
+                    </div>
                 <div class="text-center">
                     <button class="cta-button" onclick="app.showMovies()" style="margin-right: 1rem;">View All Movies</button>
                     <button class="cta-button" onclick="app.showSeries()">View All Series</button>
@@ -1301,7 +1294,6 @@
             </div>
         </section>
 
-        <!-- Collections Section -->
         <section class="section" id="collectionsSection">
             <div class="container">
                 <h2 class="section-title">Browse Collections</h2>
@@ -1339,14 +1331,12 @@
         </section>
     </div>
 
-    <!-- Movies Page -->
     <div id="moviesPage" class="hidden">
         <div style="height: 100px;"></div>
         <div class="container">
             <div class="section">
                 <h2 class="section-title">All Movies</h2>
                 
-                <!-- Search and Filter Controls -->
                 <div class="controls-container">
                     <div class="search-container">
                         <i class="fas fa-search search-icon"></i>
@@ -1364,27 +1354,21 @@
                     </div>
                 </div>
 
-                <!-- Movies Grid -->
                 <div class="content-grid" id="moviesGrid">
-                    <!-- Movies will be loaded here -->
-                </div>
+                    </div>
 
-                <!-- Pagination -->
                 <div class="pagination-container" id="moviePaginationContainer">
-                    <!-- Pagination will be loaded here -->
-                </div>
+                    </div>
             </div>
         </div>
     </div>
 
-    <!-- Series Page -->
     <div id="seriesPage" class="hidden">
         <div style="height: 100px;"></div>
         <div class="container">
             <div class="section">
                 <h2 class="section-title">All Series</h2>
                 
-                <!-- Search and Filter Controls -->
                 <div class="controls-container">
                     <div class="search-container">
                         <i class="fas fa-search search-icon"></i>
@@ -1402,31 +1386,25 @@
                     </div>
                 </div>
 
-                <!-- Series Grid -->
                 <div class="content-grid" id="seriesGrid">
-                    <!-- Series will be loaded here -->
-                </div>
+                    </div>
 
-                <!-- Pagination -->
                 <div class="pagination-container" id="seriesPaginationContainer">
-                    <!-- Pagination will be loaded here -->
-                </div>
+                    </div>
             </div>
         </div>
     </div>
 
-    <!-- Admin Section -->
     <div id="adminSection" class="hidden">
         <div style="height: 100px;"></div>
         <div class="container">
             <div class="admin-section">
-                <!-- Admin Login -->
                 <div id="adminLogin">
                     <h3 class="section-title">Admin Login</h3>
                     <div class="login-form">
                         <div class="form-group">
-                            <label class="form-label">Username</label>
-                            <input type="text" class="form-input" id="adminUsername" placeholder="Enter username">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" id="adminUsername" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Password</label>
@@ -1436,7 +1414,6 @@
                     </div>
                 </div>
 
-                <!-- Admin Panel -->
                 <div id="adminPanel" class="hidden">
                     <div class="admin-header">
                         <div class="admin-title">
@@ -1454,7 +1431,6 @@
                         </div>
                     </div>
 
-                    <!-- Admin Stats -->
                     <div class="admin-stats">
                         <div class="stat-card">
                             <div class="stat-value" id="totalMovies">0</div>
@@ -1474,7 +1450,6 @@
                         </div>
                     </div>
 
-                    <!-- Movie Form -->
                     <div class="content-form hidden" id="movieForm">
                         <h4 id="movieFormTitle">Add New Movie</h4>
                         <form onsubmit="app.saveMovie(event)">
@@ -1528,7 +1503,6 @@
                         </form>
                     </div>
 
-                    <!-- Series Form -->
                     <div class="content-form hidden" id="seriesForm">
                         <h4 id="seriesFormTitle">Add New Series</h4>
                         <form onsubmit="app.saveSeries(event)">
@@ -1568,12 +1542,10 @@
                                 <textarea class="form-textarea" id="seriesDescription" required placeholder="Enter series description..."></textarea>
                             </div>
                             
-                            <!-- Seasons Container -->
                             <div class="form-group">
                                 <label class="form-label">Seasons & Episodes</label>
                                 <div id="seasonsContainer">
-                                    <!-- Seasons will be dynamically added here -->
-                                </div>
+                                    </div>
                                 <button type="button" class="btn-add" onclick="app.addSeason()">
                                     <i class="fas fa-plus"></i> Add Season
                                 </button>
@@ -1590,16 +1562,13 @@
                         </form>
                     </div>
 
-                    <!-- Admin Content List -->
                     <div class="content-grid" id="adminContentGrid">
-                        <!-- Admin content will be loaded here -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Video Modal -->
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="app.closeVideoModal()">
@@ -1616,7 +1585,6 @@
                 </div>
                 <div class="modal-description" id="modalDescription"></div>
             </div>
-            <!-- Series Episode Selector -->
             <div class="episode-selector hidden" id="episodeSelector">
                 <div class="selector-row">
                     <div>
@@ -1641,7 +1609,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1676,34 +1643,26 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
     <script>
-        // Firebase Configuration
+        // 1. COLLEZ VOTRE CONFIGURATION PERSONNELLE DE FIREBASE ICI
         const firebaseConfig = {
-            apiKey: "AIzaSyAMxFcc8nt3RgsodtGBUw-jYEZu6Ui4NIA",
-            authDomain: "oussastream.firebaseapp.com",
-            databaseURL: "https://oussastream-default-rtdb.firebaseio.com",
-            projectId: "oussastream",
-            storageBucket: "oussastream.firebasestorage.app",
-            messagingSenderId: "12799093969",
-            appId: "1:12799093969:web:fc044c5c7b3c78a1e3e9f0"
+             apiKey: "AIzaSyAMxFcc8nt3RgsodtGBUw-jYEZu6Ui4NIA",
+  authDomain: "oussastream.firebaseapp.com",
+  databaseURL: "https://oussastream-default-rtdb.firebaseio.com",
+  projectId: "oussastream",
+  storageBucket: "oussastream.firebasestorage.app",
+  messagingSenderId: "12799093969",
+  appId: "1:12799093969:web:fc044c5c7b3c78a1e3e9f0"
         };
 
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
-        // Simple encryption for credentials (Base64 encoding)
-        const ENCRYPTED_CREDENTIALS = {
-            username: btoa('admin'), // admin
-            password: btoa('Oussama@123') // Oussama@123
-        };
 
         class OussaStreamApp {
             constructor() {
@@ -1720,7 +1679,9 @@
                 this.currentSeriesSearch = '';
                 
                 // Admin settings
-                this.isAdminLoggedIn = false;
+                // 2. COLLEZ VOTRE ADMIN UID DE FIREBASE ICI (ENTRE LES GUILLEMETS)
+                this.adminUID = 'XzbAaK0d1qc9AiJUdCGGzudIJXa2'; 
+                this.isAdminLoggedIn = false; // Géré par Firebase Auth
                 this.editingMovieId = null;
                 this.editingSeriesId = null;
                 
@@ -1735,6 +1696,10 @@
                 this.currentContent = null;
                 this.firebaseConnected = false;
                 this.seasonCount = 0;
+
+                // Firebase services
+                this.db = firebase.database();
+                this.auth = firebase.auth(); // Ajout du service d'authentification
 
                 this.init();
             }
@@ -1758,7 +1723,7 @@
                 const connectionStatus = document.getElementById('connectionStatus');
                 
                 // Check connection status
-                const connectedRef = database.ref('.info/connected');
+                const connectedRef = this.db.ref('.info/connected');
                 connectedRef.on('value', (snapshot) => {
                     if (snapshot.val() === true) {
                         this.firebaseConnected = true;
@@ -1774,8 +1739,31 @@
                     }
                 });
 
+                // NOUVEL ÉCOUTEUR D'AUTHENTIFICATION
+                // Gère l'état de connexion de l'admin
+                this.auth.onAuthStateChanged((user) => {
+                    // Vérifie si l'utilisateur est connecté ET si son UID est celui de l'admin
+                    if (user && user.uid === this.adminUID) {
+                        this.isAdminLoggedIn = true;
+                        console.log('Admin is logged in');
+                        // Si on est sur la page admin, montrer le panneau admin
+                        if (this.currentView === 'admin') {
+                            this.showAdminPanel();
+                        }
+                    } else {
+                        this.isAdminLoggedIn = false;
+                        console.log('User is logged out or not admin');
+                        // Si on est sur la page admin, montrer le formulaire de login
+                        if (this.currentView === 'admin') {
+                            this.showAdminLogin();
+                        }
+                    }
+                    // Mettre à jour l'UI pour montrer/cacher les boutons "edit/delete" partout
+                    this.updateUI(); 
+                });
+
                 // Listen for movies changes in real-time
-                database.ref('movies').on('value', (snapshot) => {
+                this.db.ref('movies').on('value', (snapshot) => {
                     const data = snapshot.val();
                     if (data) {
                         this.movies = Object.keys(data).map(key => ({
@@ -1789,7 +1777,7 @@
                 });
 
                 // Listen for series changes in real-time
-                database.ref('series').on('value', (snapshot) => {
+                this.db.ref('series').on('value', (snapshot) => {
                     const data = snapshot.val();
                     if (data) {
                         this.series = Object.keys(data).map(key => ({
@@ -1806,8 +1794,8 @@
             loadContentFromFirebase() {
                 // Check if we need to initialize sample data
                 Promise.all([
-                    database.ref('movies').once('value'),
-                    database.ref('series').once('value')
+                    this.db.ref('movies').once('value'),
+                    this.db.ref('series').once('value')
                 ]).then(([moviesSnapshot, seriesSnapshot]) => {
                     if (!moviesSnapshot.val()) {
                         this.initializeSampleMovies();
@@ -1835,26 +1823,10 @@
                         description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
                         poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                         videoUrl: "https://www.youtube.com/embed/sY1S34973zA"
-                    },
-                    {
-                        title: "Inception",
-                        year: 2010,
-                        type: "Sci-Fi",
-                        description: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea.",
-                        poster: "https://images.unsplash.com/photo-1566043292-78f944e445a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                        videoUrl: "https://www.youtube.com/embed/YoHD9XEInc0"
-                    },
-                    {
-                        title: "The Matrix",
-                        year: 1999,
-                        type: "Action",
-                        description: "A computer programmer discovers that reality as he knows it is a simulation and joins a rebellion to break free.",
-                        poster: "https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                        videoUrl: "https://www.youtube.com/embed/vKQi3bBA1y8"
                     }
                 ];
 
-                const moviesRef = database.ref('movies');
+                const moviesRef = this.db.ref('movies');
                 sampleMovies.forEach(movie => {
                     moviesRef.push(movie);
                 });
@@ -1873,38 +1845,14 @@
                                 seasonNumber: 1,
                                 episodes: [
                                     { episodeNumber: 1, title: "The Vanishing of Will Byers", videoUrl: "https://www.youtube.com/embed/b9EkMc79ZSU" },
-                                    { episodeNumber: 2, title: "The Weirdo on Maple Street", videoUrl: "https://www.youtube.com/embed/XWxyRG_tckY" },
-                                    { episodeNumber: 3, title: "Holly, Jolly", videoUrl: "https://www.youtube.com/embed/mnd7sFt5c3A" }
-                                ]
-                            },
-                            {
-                                seasonNumber: 2,
-                                episodes: [
-                                    { episodeNumber: 1, title: "MADMAX", videoUrl: "https://www.youtube.com/embed/9Egf5U8xLo8" },
-                                    { episodeNumber: 2, title: "Trick or Treat, Freak", videoUrl: "https://www.youtube.com/embed/CIGHCoVzqtk" }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        title: "Breaking Bad",
-                        year: 2008,
-                        type: "Drama",
-                        description: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine.",
-                        poster: "https://images.unsplash.com/photo-1611003229146-f2cd9ac5a8d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                        seasons: [
-                            {
-                                seasonNumber: 1,
-                                episodes: [
-                                    { episodeNumber: 1, title: "Pilot", videoUrl: "https://www.youtube.com/embed/HhesaQXLuRY" },
-                                    { episodeNumber: 2, title: "Cat's in the Bag...", videoUrl: "https://www.youtube.com/embed/ceXBHxSG9k4" }
+                                    { episodeNumber: 2, title: "The Weirdo on Maple Street", videoUrl: "https://www.youtube.com/embed/XWxyRG_tckY" }
                                 ]
                             }
                         ]
                     }
                 ];
 
-                const seriesRef = database.ref('series');
+                const seriesRef = this.db.ref('series');
                 sampleSeries.forEach(series => {
                     seriesRef.push(series);
                 });
@@ -1918,7 +1866,7 @@
 
                 if (this.editingMovieId) {
                     // Update existing movie
-                    database.ref('movies/' + this.editingMovieId).update(movieData)
+                    this.db.ref('movies/' + this.editingMovieId).update(movieData)
                         .then(() => {
                             console.log('Movie updated successfully');
                         })
@@ -1928,7 +1876,7 @@
                         });
                 } else {
                     // Add new movie
-                    database.ref('movies').push(movieData)
+                    this.db.ref('movies').push(movieData)
                         .then(() => {
                             console.log('Movie added successfully');
                         })
@@ -1947,7 +1895,7 @@
 
                 if (this.editingSeriesId) {
                     // Update existing series
-                    database.ref('series/' + this.editingSeriesId).update(seriesData)
+                    this.db.ref('series/' + this.editingSeriesId).update(seriesData)
                         .then(() => {
                             console.log('Series updated successfully');
                         })
@@ -1957,7 +1905,7 @@
                         });
                 } else {
                     // Add new series
-                    database.ref('series').push(seriesData)
+                    this.db.ref('series').push(seriesData)
                         .then(() => {
                             console.log('Series added successfully');
                         })
@@ -1975,7 +1923,7 @@
                 }
 
                 if (confirm('Are you sure you want to delete this movie? This action cannot be undone.')) {
-                    database.ref('movies/' + movieId).remove()
+                    this.db.ref('movies/' + movieId).remove()
                         .then(() => {
                             console.log('Movie deleted successfully');
                         })
@@ -1993,7 +1941,8 @@
                 }
 
                 if (confirm('Are you sure you want to delete this series? This action cannot be undone.')) {
-                    database.ref('series/' + seriesId).remove()
+                    // CORRIGÉ : Suppression du '/' en trop qui causait la SyntaxError
+                    this.db.ref('series/' + seriesId).remove()
                         .then(() => {
                             console.log('Series deleted successfully');
                         })
@@ -2144,24 +2093,38 @@
                 this.updateAdminStats();
             }
 
+            // MODIFIÉ : Fonction de login sécurisée
             adminLogin() {
-                const username = document.getElementById('adminUsername').value;
+                const email = document.getElementById('adminUsername').value;
                 const password = document.getElementById('adminPassword').value;
 
-                if (btoa(username) === ENCRYPTED_CREDENTIALS.username && 
-                    btoa(password) === ENCRYPTED_CREDENTIALS.password) {
-                    this.isAdminLoggedIn = true;
-                    this.showAdminPanel();
-                    document.getElementById('adminUsername').value = '';
-                    document.getElementById('adminPassword').value = '';
-                } else {
-                    alert('Invalid credentials!');
+                if (!email || !password) {
+                    alert('Veuillez entrer un email et un mot de passe.');
+                    return;
                 }
+
+                this.auth.signInWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                        // Réussite ! onAuthStateChanged va s'occuper du reste.
+                        console.log('Admin login successful', userCredential.user);
+                        document.getElementById('adminUsername').value = '';
+                        document.getElementById('adminPassword').value = '';
+                    })
+                    .catch((error) => {
+                        console.error('Admin login error:', error);
+                        alert('Erreur de connexion: ' + error.message);
+                    });
             }
 
+            // MODIFIÉ : Fonction de logout sécurisée
             adminLogout() {
-                this.isAdminLoggedIn = false;
-                this.showAdminLogin();
+                this.auth.signOut().then(() => {
+                    // onAuthStateChanged va s'occuper du reste.
+                    console.log('Admin logged out');
+                }).catch((error) => {
+                    console.error('Logout error:', error);
+                    alert('Erreur de déconnexion: ' + error.message);
+                });
             }
 
             // Movie Form Methods
@@ -2619,6 +2582,10 @@
                 const editFunction = isSeries ? `app.editSeries('${content.id}')` : `app.editMovie('${content.id}')`;
                 const deleteFunction = isSeries ? `app.deleteSeries('${content.id}')` : `app.deleteMovie('${content.id}')`;
                 
+                // Les contrôles admin ne s'affichent que si showAdminControls est vrai
+                // ET this.isAdminLoggedIn est vrai (double sécurité)
+                const showButtons = showAdminControls && this.isAdminLoggedIn;
+
                 return `
                     <div class="content-card animate-scale-in">
                         ${isSeries ? '<div class="series-badge">Series</div>' : ''}
@@ -2634,7 +2601,7 @@
                                 <button class="btn-watch" onclick="${watchFunction}">
                                     <i class="fas fa-play"></i> Watch
                                 </button>
-                                ${showAdminControls ? `
+                                ${showButtons ? `
                                     <button class="btn-edit" onclick="${editFunction}" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </button>
